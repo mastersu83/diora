@@ -5,4 +5,5 @@ export type ImageTypes = {
 export type ImagesTypes = {
   vertical: ImageTypes[];
   horizontal: ImageTypes[];
+  title: string;
 };

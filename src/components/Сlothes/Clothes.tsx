@@ -3,12 +3,13 @@ import classes from "./Clothes.module.scss";
 import { Link } from "react-router-dom";
 import { getImages } from "../../services/galleryAPI";
 import { useAppDispatch } from "../../hooks/appHooks";
+import { getPathName } from "../../utils/utils";
 
 const Clothes = () => {
   const dispatch = useAppDispatch();
 
-  const getCurrentImages = (key: boolean) => {
-    dispatch(getImages(key));
+  const getCurrentImages = (key: string | undefined) => {
+    dispatch(getImages(getPathName(key)));
   };
 
   return (
@@ -25,7 +26,7 @@ const Clothes = () => {
           />
           <Link to="/clothes-gallery">
             <button
-              onClick={() => getCurrentImages(true)}
+              onClick={() => getCurrentImages("girl")}
               className={`${classes.clothes__girlImgBtn} ${classes.clothes__btn}`}
             >
               Для девочек
@@ -40,7 +41,7 @@ const Clothes = () => {
           />
           <Link to="/clothes-gallery">
             <button
-              onClick={() => getCurrentImages(false)}
+              onClick={() => getCurrentImages("boy")}
               className={`${classes.clothes__boyImgBtn} ${classes.clothes__btn}`}
             >
               Для мальчиков

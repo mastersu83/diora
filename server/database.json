@@ -1,5 +1,6 @@
 {
   "imagesBoy": {
+    "title": "Комплекты на выписку для мальчиков",
     "vertical": [
       {
         "id": 1,
@@ -66,6 +67,7 @@
     ]
   },
   "imagesGirl": {
+    "title": "Комплекты на выписку для девочек",
     "vertical": [
       {
         "id": 16,
@@ -161,7 +163,8 @@
       "url": "https://4.downloader.disk.yandex.ru/preview/e54a13dbca7adc7a0d6175a2971e2f029d2aec055a66d48e8d0f604b5e5bd624/inf/ajKbgDmU6qO7dA3-EbHD4Gb-0erH1wFFbkxA0x9qOkcBZlwsWe-iSYt8UkC8SkaiSUHV_3OEMT4L2zHLvPDang%3D%3D?uid=103259103&filename=IMG_6422.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=103259103&tknv=v2&size=2560x1440"
     }
   ],
-  "others": {
+  "imagesOthers": {
+    "title": "Пледы на выписку, наборы в кровать, корзины",
     "vertical": [
       {
         "id": 38,

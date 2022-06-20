@@ -6,6 +6,7 @@ import Slider from "./components/Slider/Slider";
 import ClothesGallery from "./components/ClothesGallery/ClothesGallery";
 import Clothes from "./components/Сlothes/Clothes";
 import BG from "./assets/IndigoDesigns_BabyGirl_pp+(7)1.jpg";
+import Contacts from "./components/Contacts/Contacts";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Route path="/" element={<Slider />} />
           <Route path="clothes" element={<Clothes />} />
           <Route path="clothes-gallery" element={<ClothesGallery />} />
+          <Route path="others" element={<ClothesGallery />} />
+          <Route path="contact" element={<Contacts />} />
           <Route path="*" element={<div>Not Found</div>} />
         </Route>
       </Routes>

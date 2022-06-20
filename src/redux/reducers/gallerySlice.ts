@@ -6,12 +6,14 @@ type InitialStateType = {
   vertical: ImageTypes[];
   horizontal: ImageTypes[];
   imagesIsSuccess: boolean;
+  title: string;
 };
 
 const initialState: InitialStateType = {
   vertical: [],
   horizontal: [],
   imagesIsSuccess: false,
+  title: "",
 };
 
 const gallerySlice = createSlice({
@@ -32,6 +34,7 @@ const gallerySlice = createSlice({
     ) => {
       state.vertical = action.payload.vertical;
       state.horizontal = action.payload.horizontal;
+      state.title = action.payload.title;
       state.imagesIsSuccess = true;
     },
   },

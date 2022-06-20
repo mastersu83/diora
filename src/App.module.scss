@@ -1,3 +1,5 @@
+@import "./scss/variables";
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -6,6 +8,7 @@
 
 body {
   font-family: "Courier New";
+  color: $mainColor;
 }
 
 .App {
@@ -13,7 +16,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #5d4639;
+  color: $mainColor;
 }
 
 .bg {

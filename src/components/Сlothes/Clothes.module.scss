@@ -1,9 +1,12 @@
+@import "../../scss/variables";
+
 .clothes {
   padding: 10px 100px;
   &__title {
     margin-bottom: 60px;
     font-size: 40px;
     text-align: center;
+    color: $mainColor;
   }
   &__items {
     display: flex;
@@ -35,9 +38,9 @@
     padding: 10px;
     font-size: 20px;
     font-family: inherit;
-    border: 1px solid #5d4639;
+    border: 1px solid $mainColor;
     border-radius: 5px;
-    color: #5d4639;
+    color: $mainColor;
     cursor: pointer;
     transition: 0.5s;
     &:hover {

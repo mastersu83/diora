@@ -6,15 +6,13 @@ import HorizontalLoader from "../Loader/HorizontalLoader";
 import VerticalLoader from "../Loader/VerticalLoader";
 
 const ClothesGallery = () => {
-  const { vertical, horizontal, imagesIsSuccess } = useAppSelector(
+  const { vertical, horizontal, imagesIsSuccess, title } = useAppSelector(
     (state) => state.gallery
   );
 
   return (
     <div className={classes.clothesGirl}>
-      <p className={classes.clothesGirl__title}>
-        Комплекты на выписку для девочек
-      </p>
+      <p className={classes.clothesGirl__title}>{title}</p>
       <div className={classes.clothesGirl__items}>
         <div className={classes.clothesGirl__verticalItems}>
           {imagesIsSuccess

@@ -1,8 +1,16 @@
 import React from "react";
 import classes from "./Menu.module.scss";
 import { NavLink } from "react-router-dom";
+import { useAppDispatch } from "../../hooks/appHooks";
+import { getImages } from "../../services/galleryAPI";
+import { getPathName } from "../../utils/utils";
 
 const Menu = () => {
+  const dispatch = useAppDispatch();
+
+  const getOthersImages = (key: string | undefined) => {
+    dispatch(getImages(getPathName(key)));
+  };
   return (
     <ul className={classes.menu}>
       <NavLink
@@ -18,7 +26,8 @@ const Menu = () => {
         <li className={classes.menu__link}>НАРЯДНАЯ ОДЕЖДА</li>
       </NavLink>
       <NavLink
-        to="other"
+        onClick={() => getOthersImages("other")}
+        to="others"
         className={({ isActive }) => (isActive ? classes.menu__activeLink : "")}
       >
         <li className={classes.menu__link}>КОНВЕРТЫ, ПЛЕДЫ, КОРЗИНЫ</li>

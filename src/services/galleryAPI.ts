@@ -27,10 +27,8 @@ export const { useGetSliderImgQuery, useGetOthersImgQuery } = galleryAPI;
 
 export const getImages = createAsyncThunk(
   "gallery/getImages",
-  async (key: boolean) => {
-    const resp = await axios.get<ImagesTypes[]>(
-      `http://localhost:4000/${key ? "imagesGirl" : "imagesBoy"}`
-    );
+  async (key: string | undefined) => {
+    const resp = await axios.get<ImagesTypes[]>(`http://localhost:4000/${key}`);
     return resp.data;
   }
 );

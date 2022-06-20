@@ -1,0 +1,68 @@
+@import "../../scss/variables";
+
+.contacts {
+  padding: 10px 100px;
+  &__title {
+    margin-bottom: 60px;
+    font-size: 40px;
+    text-align: center;
+    color: $mainColor;
+  }
+  &__box {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__data {
+    p {
+      font-size: 20px;
+      color: $mainColor;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    input {
+      width: 550px;
+      height: 34px;
+      margin-bottom: 10px;
+      background-color: transparent;
+      padding: 0 10px;
+      border: 1px solid $mainColor;
+      border-radius: 5px;
+      color: $mainColor;
+    }
+    textarea {
+      width: 100%;
+      height: 130px;
+      background-color: transparent;
+      padding: 10px 10px;
+      border: 1px solid $mainColor;
+      border-radius: 5px;
+      resize: none;
+      color: $mainColor;
+    }
+    button {
+      font-family: inherit;
+      font-size: 16px;
+      background-color: #dcf4f1;
+      width: max-content;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid $mainColor;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.5s;
+      color: $mainColor;
+
+      &:hover {
+        background-color: #ff85a4;
+        transition: 0.5s;
+      }
+    }
+  }
+  &__phone {
+  }
+  &__email {
+  }
+}
