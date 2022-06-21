@@ -1,10 +1,12 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import classes from "./Contacts.module.scss";
+import emailjs from "emailjs-com";
 
 const Contacts = () => {
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
 
@@ -15,9 +17,18 @@ const Contacts = () => {
     setInputs({ ...inputs, [name]: value });
   };
 
-  const onSend = () => {
-    console.log("hello");
-  };
+  function sendEmail(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    emailjs
+      .send("service_9lgjhxd", "template_8ungnpb", inputs, "eQGLG0AZVrB7OFMsY")
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+      });
+  }
 
   return (
     <div className={classes.contacts}>
@@ -27,12 +38,13 @@ const Contacts = () => {
           <p>8(928)22-00-633</p>
           <p>E:mail diorakids@mail.ru</p>
         </div>
-        <form onSubmit={onSend} className={classes.contacts__form}>
+        <form onSubmit={sendEmail} className={classes.contacts__form}>
           <input
             onChange={onChange}
             name="name"
             type="text"
             placeholder="Ваше имя"
+            value={inputs.name}
             required
           />
           <input
@@ -40,12 +52,22 @@ const Contacts = () => {
             name="email"
             type="email"
             placeholder="Ваш Email"
+            value={inputs.email}
+            required
+          />
+          <input
+            onChange={onChange}
+            name="subject"
+            type="text"
+            placeholder="Тема сообщения"
+            value={inputs.subject}
             required
           />
           <textarea
             onChange={onChange}
             name="message"
             placeholder="Сообщение"
+            value={inputs.message}
             required
           />
           <button>Отправить</button>

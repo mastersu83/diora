@@ -3,7 +3,7 @@ import Header from "../Header/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Menu from "../Menu/Menu";
-import classes from "../Main/Main.module.scss";
+import classes from "../../App.module.scss";
 
 const Layout = () => {
   return (
