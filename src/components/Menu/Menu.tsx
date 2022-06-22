@@ -29,8 +29,8 @@ const Menu = () => {
         <li className={classes.menu__link}>НАРЯДНАЯ ОДЕЖДА</li>
       </NavLink>
       <NavLink
-        onClick={() => getOthersImages("other")}
-        to="others"
+        onClick={() => getOthersImages("/others-cloth")}
+        to="others-cloth"
         className={({ isActive }) => (isActive ? classes.menu__activeLink : "")}
       >
         <li className={classes.menu__link}>КОНВЕРТЫ, ПЛЕДЫ, КОРЗИНЫ</li>

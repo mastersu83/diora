@@ -16,8 +16,9 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Slider />} />
           <Route path="clothes" element={<Clothes />} />
-          <Route path="clothes-gallery" element={<ClothesGallery />} />
-          <Route path="others" element={<ClothesGallery />} />
+          <Route path="girl-cloth" element={<ClothesGallery />} />
+          <Route path="boy-cloth" element={<ClothesGallery />} />
+          <Route path="others-cloth" element={<ClothesGallery />} />
           <Route path="contact" element={<Contacts />} />
           <Route path="*" element={<div>Not Found</div>} />
         </Route>

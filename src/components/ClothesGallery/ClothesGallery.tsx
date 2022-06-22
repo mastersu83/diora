@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./ClothesGallery.module.scss";
 import { ImageTypes } from "../../types/types";
-import { useAppSelector } from "../../hooks/appHooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/appHooks";
 import HorizontalLoader from "../Loader/HorizontalLoader";
 import VerticalLoader from "../Loader/VerticalLoader";
+import { getImages } from "../../services/galleryAPI";
+import { setTitle } from "../../redux/reducers/gallerySlice";
+import { useLocation } from "react-router-dom";
+import { getPathName } from "../../utils/utils";
 
 const ClothesGallery = () => {
+  const dispatch = useAppDispatch();
+  const { pathname } = useLocation();
+
   const { vertical, horizontal, imagesIsSuccess, title } = useAppSelector(
     (state) => state.gallery
   );
+
+  useEffect(() => {
+    const { path, title } = getPathName(pathname);
+    dispatch(getImages(path));
+    dispatch(setTitle(title));
+  }, []);
 
   return (
     <div className={classes.clothesGirl}>

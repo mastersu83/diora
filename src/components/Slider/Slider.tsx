@@ -17,7 +17,7 @@ const Slider = () => {
           showBullets={true}
           showNavs={false}
           autoPlay={true}
-          autoPlayDelay={2}
+          autoPlayDelay={1}
           slideDuration={2}
         />
       )}

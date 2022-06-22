@@ -28,6 +28,7 @@ const Contacts = () => {
       .catch((err) => {
         console.log("FAILED...", err);
       });
+    setInputs({ name: "", email: "", message: "", subject: "" });
   }
 
   return (
