@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 import { getImages } from "../../services/galleryAPI";
 import { useAppDispatch } from "../../hooks/appHooks";
 import { getPathName } from "../../utils/utils";
+import { setTitle } from "../../redux/reducers/gallerySlice";
 
 const Clothes = () => {
   const dispatch = useAppDispatch();
 
-  const getCurrentImages = (key: string | undefined) => {
-    dispatch(getImages(getPathName(key)));
+  const getCurrentImages = (key: string) => {
+    let { title, path } = getPathName(key);
+    dispatch(getImages(path));
+    dispatch(setTitle(title));
   };
 
   return (

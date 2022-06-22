@@ -6,7 +6,7 @@ import axios from "axios";
 export const galleryAPI = createApi({
   reducerPath: "galleryAPI",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:4000/",
+    baseUrl: "https://62b307d420cad3685c99a01c.mockapi.io/diorakids/",
   }),
   tagTypes: ["ImagesBoy"],
   endpoints: (build) => ({
@@ -15,20 +15,17 @@ export const galleryAPI = createApi({
         url: "slider",
       }),
     }),
-    getOthersImg: build.query({
-      query: () => ({
-        url: "others",
-      }),
-    }),
   }),
 });
 
-export const { useGetSliderImgQuery, useGetOthersImgQuery } = galleryAPI;
+export const { useGetSliderImgQuery } = galleryAPI;
 
 export const getImages = createAsyncThunk(
   "gallery/getImages",
   async (key: string | undefined) => {
-    const resp = await axios.get<ImagesTypes[]>(`http://localhost:4000/${key}`);
+    const resp = await axios.get<ImagesTypes[]>(
+      `https://62b307d420cad3685c99a01c.mockapi.io/diorakids/${key}`
+    );
     return resp.data;
   }
 );

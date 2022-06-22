@@ -4,12 +4,15 @@ import { NavLink } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/appHooks";
 import { getImages } from "../../services/galleryAPI";
 import { getPathName } from "../../utils/utils";
+import { setTitle } from "../../redux/reducers/gallerySlice";
 
 const Menu = () => {
   const dispatch = useAppDispatch();
 
   const getOthersImages = (key: string | undefined) => {
-    dispatch(getImages(getPathName(key)));
+    let { path, title } = getPathName(key);
+    dispatch(getImages(path));
+    dispatch(setTitle(title));
   };
   return (
     <ul className={classes.menu}>

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ImagesTypes, ImageTypes } from "../../types/types";
+import { ImageTypes } from "../../types/types";
 import { getImages } from "../../services/galleryAPI";
 
 type InitialStateType = {
@@ -20,9 +20,9 @@ const gallerySlice = createSlice({
   name: "gallery",
   initialState,
   reducers: {
-    // addImages(state: InitialStateType, action: PayloadAction<ImagesTypes>) {
-    //   state.images.push(action.payload);
-    // },
+    setTitle(state: InitialStateType, action: PayloadAction<string>) {
+      state.title = action.payload;
+    },
   },
   extraReducers: {
     [getImages.pending.type]: (state: InitialStateType) => {
@@ -30,14 +30,18 @@ const gallerySlice = createSlice({
     },
     [getImages.fulfilled.type]: (
       state: InitialStateType,
-      action: PayloadAction<ImagesTypes>
+      action: PayloadAction<ImageTypes[]>
     ) => {
-      state.vertical = action.payload.vertical;
-      state.horizontal = action.payload.horizontal;
-      state.title = action.payload.title;
+      state.vertical = [];
+      state.horizontal = [];
+      action.payload.map((i) =>
+        i.type === 0 ? state.vertical.push(i) : state.horizontal.push(i)
+      );
       state.imagesIsSuccess = true;
     },
   },
 });
+
+export const { setTitle } = gallerySlice.actions;
 
 export default gallerySlice;
