@@ -13,6 +13,8 @@ const Slider = () => {
     dispatch(getSliderImages());
   }, []);
 
+  console.log("df");
+
   return (
     <div className={classes.slider}>
       {sliderImages.length && (
