@@ -3,12 +3,15 @@ import classes from "./Header.module.scss";
 import logo from "../../assets/logo.png";
 import headerImg from "../../assets/IndigoDesigns_BabyGirl_cl+(5)1.png";
 import groupImg from "../../assets/Group1.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className={classes.header}>
       <div>
-        <img className={classes.header__logo} src={logo} alt="logo" />
+        <Link to="/">
+          <img className={classes.header__logo} src={logo} alt="logo" />
+        </Link>
       </div>
       <div>
         <img className={classes.header__img} src={headerImg} alt="headerImg" />

@@ -2,18 +2,24 @@ import React from "react";
 import classes from "./Slider.module.scss";
 import SimpleImageSlider from "react-simple-image-slider";
 import image from "../../assets/IndigoDesigns_BabyBoy_cl+(5)1.png";
-import { useGetSliderImgQuery } from "../../services/galleryAPI";
+import { getSliderImages } from "../../services/galleryAPI";
+import { useAppDispatch, useAppSelector } from "../../hooks/appHooks";
 
 const Slider = () => {
-  const { data: sliderImg, isSuccess } = useGetSliderImgQuery({});
+  const dispatch = useAppDispatch();
+  const { sliderImages } = useAppSelector((state) => state.gallery);
+
+  React.useEffect(() => {
+    dispatch(getSliderImages());
+  }, []);
 
   return (
     <div className={classes.slider}>
-      {isSuccess && (
+      {sliderImages.length && (
         <SimpleImageSlider
           width={1200}
           height={750}
-          images={sliderImg}
+          images={sliderImages}
           showBullets={true}
           showNavs={false}
           autoPlay={true}

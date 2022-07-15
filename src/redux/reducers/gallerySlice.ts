@@ -1,12 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ImageTypes } from "../../types/types";
-import { getImages } from "../../services/galleryAPI";
+import { getImages, getSliderImages } from "../../services/galleryAPI";
 
 type InitialStateType = {
   vertical: ImageTypes[];
   horizontal: ImageTypes[];
   imagesIsSuccess: boolean;
   title: string;
+  sliderImages: ImageTypes[];
+  sliderImagesIsSuccess: boolean;
 };
 
 const initialState: InitialStateType = {
@@ -14,6 +16,8 @@ const initialState: InitialStateType = {
   horizontal: [],
   imagesIsSuccess: false,
   title: "",
+  sliderImages: [],
+  sliderImagesIsSuccess: false,
 };
 
 const gallerySlice = createSlice({
@@ -38,6 +42,16 @@ const gallerySlice = createSlice({
         i.type === 0 ? state.vertical.push(i) : state.horizontal.push(i)
       );
       state.imagesIsSuccess = true;
+    },
+    [getSliderImages.pending.type]: (state: InitialStateType) => {
+      state.sliderImagesIsSuccess = false;
+    },
+    [getSliderImages.fulfilled.type]: (
+      state: InitialStateType,
+      action: PayloadAction<ImageTypes[]>
+    ) => {
+      state.sliderImages = action.payload;
+      state.sliderImagesIsSuccess = true;
     },
   },
 });
